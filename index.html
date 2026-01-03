@@ -2,128 +2,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL — AI Powered Business Websites</title>
-  <meta name="description" content="Professional business website built with modern design and AI-ready structure." />
+  <title>SQL – Business Websites</title>
   <style>
-    #menuBtn{
-      position:fixed;right:20px;top:20px;font-size:26px;cursor:pointer;z-index:9999
-    }
-    #sideMenu{
-      position:fixed;right:-260px;top:0;width:250px;height:100%;background:#020617;
-      padding:20px;transition:0.3s;z-index:9998
-    }
-    #sideMenu a{display:block;margin:15px 0;color:#fff}
-    #langBar{
-      position:fixed;right:20px;top:70px;z-index:9999
-    }:root {
-  --bg: #0f172a;
-  --card: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #38bdf8;
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: #0b1020; color: #fff; }header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-body { background: var(--bg); color: var(--text); line-height: 1.6; }
-a { color: var(--accent); text-decoration: none; }
 
-header {
+.logo { font-size: 26px; font-weight: bold; }
+
+.menu-btn { font-size: 26px; cursor: pointer; }
+
+.hero {
   padding: 60px 20px;
   text-align: center;
-  background: linear-gradient(135deg, #020617, #0f172a);
 }
-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-header p { color: var(--muted); max-width: 600px; margin: auto; }
 
-section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-.card h3 { margin-bottom: 10px; }
-.card p { color: var(--muted); }
+.hero h1 { font-size: 32px; margin-bottom: 15px; }
+.hero p { color: #ccc; margin-bottom: 25px; }
 
-.cta {
-  text-align: center;
-  background: #020617;
-  border-radius: 16px;
-}
-.cta h2 { margin-bottom: 15px; }
-.cta button {
-  padding: 12px 25px;
-  font-size: 1rem;
-  border: none;
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #3ab4ff;
+  color: #000;
   border-radius: 8px;
-  background: var(--accent);
-  color: #020617;
-  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-footer {
-  padding: 30px 20px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
+/* MENU */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 999;
 }
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background: #050814;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.menu.active { right: 0; }
+.overlay.active { display: block; }
+
+.menu a { display: block; color: #fff; text-decoration: none; margin: 15px 0; }
+
+select { width: 100%; padding: 10px; margin-top: 20px; }
+
+footer { text-align: center; padding: 30px; color: #777; }
 
   </style>
 </head>
-<body><!-- RIGHT SIDE MENU BUTTON --><div id="menuBtn">☰</div><!-- SIDE MENU --><nav id="sideMenu">
-  <a href="#" onclick="toggleMenu()">✖ Close</a>
+<body><header>
+  <div class="logo">SQL</div>
+  <div class="menu-btn" onclick="openMenu()">☰</div>
+</header><section class="hero">
+  <h1 data-en="Need a Website for Your Business?" data-hi="अपने बिज़नेस के लिए वेबसाइट चाहिए?">
+    Need a Website for Your Business?
+  </h1>
+  <p data-en="Professional websites that build trust and bring customers." data-hi="प्रोफेशनल वेबसाइट जो भरोसा बनाती है और ग्राहक लाती है.">
+    Professional websites that build trust and bring customers.
+  </p>
+  <a class="btn" href="https://wa.me/919012277862" target="_blank"
+     data-en="Get Started on WhatsApp" data-hi="WhatsApp पर शुरू करें">
+     Get Started on WhatsApp
+  </a>
+</section><div class="overlay" onclick="closeMenu()"></div><div class="menu" id="menu">
+  <a href="#" onclick="closeMenu()">✖ Close</a>
   <a href="#">Home</a>
   <a href="#">Services</a>
-  <a href="#">Contact</a>
-  <hr style="border:1px solid #1f2937; margin:15px 0;">
-  <label style="font-size:14px; color:#9ca3af;">Language</label>
-  <select id="language" onchange="translatePage()" style="width:100%; padding:10px; margin-top:8px; border-radius:8px; background:#020617; color:#fff; border:1px solid #1f2937;">
-    <option value="en">English</option>
-    <option value="hi<!-- TRANSLATOR BAR --><div id="langBar">
-  <select id="language" onchange="translatePage()">
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-  </select>
-</div>  <header>
-    <h1>SQL</h1>
-    <p>Smart, fast and modern business websites — built to convert visitors into customers.</p>
-  </header>  <footer>
-    © 2026 hsndaSQL. All rights reserved.
-  </footer>  <script>
-    function translateText() {
-      const text = document.getElementById('inputText').value;
-      const lang = document.getElementById('lang').value;
-      if (!text) return;
+  <a href="#">Contact</a><label style="margin-top:20px;display:block;">Language</label> <select id="languageSelect" onchange="changeLanguage(this.value)"> <option value="en">English</option> <option value="hi">Hindi</option> </select>
 
-      const dictionary = {
-        'hello': 'नमस्ते',
-        'how are you': 'आप कैसे हैं',
-        'business': 'व्यवसाय',
-        'website': 'वेबसाइट'
-      };
-
-      if (lang === 'hi') {
-        document.getElementById('outputText').innerText = dictionary[text.toLowerCase()] || 'Demo translator: limited words';
-      } else {
-        document.getElementById('outputText').innerText = 'Demo translator only';
-      }
-    }
-  </script><script>
-  function toggleMenu(){
-    const m=document.getElementById('sideMenu');
-    m.style.right = m.style.right==='0px' ? '-260px':'0px';
+</div><footer>© 2026 SQL. All rights reserved.</footer><script>
+  function openMenu() {
+    document.getElementById('menu').classList.add('active');
+    document.querySelector('.overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
-  document.getElementById('menuBtn').onclick=toggleMenu;
 
-  function translatePage(){
-    const lang=document.getElementById('language').value;
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      el.innerText = el.getAttribute('data-'+lang);
+  function closeMenu() {
+    document.getElementById('menu').classList.remove('active');
+    document.querySelector('.overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function changeLanguage(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.dataset[lang];
     });
   }
 </script></body>
-  </html>
+</html>
