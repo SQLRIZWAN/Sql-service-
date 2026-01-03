@@ -5,16 +5,28 @@
   <title>SQL — AI Powered Business Websites</title>
   <meta name="description" content="Professional business website built with modern design and AI-ready structure." />
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
+    #menuBtn{
+      position:fixed;right:20px;top:20px;font-size:26px;cursor:pointer;z-index:9999
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }header {
+    #sideMenu{
+      position:fixed;right:-260px;top:0;width:250px;height:100%;background:#020617;
+      padding:20px;transition:0.3s;z-index:9998
+    }
+    #sideMenu a{display:block;margin:15px 0;color:#fff}
+    #langBar{
+      position:fixed;right:20px;top:70px;z-index:9999
+    }:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+body { background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+
+header {
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(135deg, #020617, #0f172a);
@@ -62,7 +74,17 @@ footer {
 
   </style>
 </head>
-<body>  <header>
+<body><!-- RIGHT SIDE MENU BUTTON --><div id="menuBtn">☰</div><!-- SIDE MENU --><nav id="sideMenu">
+  <a href="#" onclick="toggleMenu()">✖ Close</a>
+  <a href="#">Home</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</nav><!-- TRANSLATOR BAR --><div id="langBar">
+  <select id="language" onchange="translatePage()">
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+  </select>
+</div>  <header>
     <h1>SQL</h1>
     <p>Smart, fast and modern business websites — built to convert visitors into customers.</p>
   </header>  <section>
@@ -90,7 +112,46 @@ footer {
     <p class="sub">Quick text translation (demo feature)</p>
     <div class="card" style="max-width:600px; margin:auto;">
       <textarea id="inputText" placeholder="Enter text..." style="width:100%; height:100px; padding:12px; border-radius:8px; border:none;"></textarea>
-      <select id="lang" style="width:100%; padding:10px; margin-top:10px>
+      <select id="lang" style="width:100%; padding:10px; margin-top:10px; border-radius:8px;">
+        <option value="hi">English to Hindi</option>
+        <option value="en">Hindi to English</option>
+      </select>
+      <button class="btn btn-secondary" style="margin-top:15px; width:100%;" onclick="translateText()">Translate</button>
+      <p id="outputText" style="margin-top:15px; color:var(--accent);"></p>
+    </div>
+  </section>  <footer>
     © 2026 hsndaSQL. All rights reserved.
-  </footer></body>
-        </html>
+  </footer>  <script>
+    function translateText() {
+      const text = document.getElementById('inputText').value;
+      const lang = document.getElementById('lang').value;
+      if (!text) return;
+
+      const dictionary = {
+        'hello': 'नमस्ते',
+        'how are you': 'आप कैसे हैं',
+        'business': 'व्यवसाय',
+        'website': 'वेबसाइट'
+      };
+
+      if (lang === 'hi') {
+        document.getElementById('outputText').innerText = dictionary[text.toLowerCase()] || 'Demo translator: limited words';
+      } else {
+        document.getElementById('outputText').innerText = 'Demo translator only';
+      }
+    }
+  </script><script>
+  function toggleMenu(){
+    const m=document.getElementById('sideMenu');
+    m.style.right = m.style.right==='0px' ? '-260px':'0px';
+  }
+  document.getElementById('menuBtn').onclick=toggleMenu;
+
+  function translatePage(){
+    const lang=document.getElementById('language').value;
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      el.innerText = el.getAttribute('data-'+lang);
+    });
+  }
+</script></body>
+</html>
