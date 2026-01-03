@@ -29,22 +29,22 @@ section { padding: 70px 22px; }
 .btn {
   display: inline-block;
   padding: 15px 32px;
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
   color: #020617;
-  border-radius: 14px;
+  border-radius: 16px;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+  box-shadow: 0 10px 30px rgba(129,140,248,0.4);
 }
 
 .grid { display: grid; gap: 22px; }
 
 .card {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
+  border-radius: 22px;
   padding: 26px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 45px rgba(0,0,0,0.45);
 }
 
 .card h3 { margin-bottom: 10px; }
@@ -52,25 +52,24 @@ section { padding: 70px 22px; }
 
 .pricing span { font-size: 28px; font-weight: 800; }
 
-.ai-box {
-  margin-top: 20px;
-  background: #020617;
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
+.ai-box input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 14px;
 }
 
 input, textarea {
   width: 100%;
   padding: 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   margin-top: 12px;
 }
 
 footer { text-align: center; padding: 40px 20px; color: #94a3b8; }
 
-/* MENU */
 .overlay {
   position: fixed;
   inset: 0;
@@ -94,7 +93,6 @@ footer { text-align: center; padding: 40px 20px; color: #94a3b8; }
 .menu.active { right: 0; }
 .overlay.active { display: block; }
 .menu a { display: block; margin: 16px 0; text-decoration: none; color: #fff; }
-
 select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
 
   </style>
@@ -104,15 +102,15 @@ select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
   <div class="menu-btn" onclick="openMenu()">☰</div>
 </header><section class="hero">
   <h1 data-en="AI-Powered Premium Websites" data-hi="AI से बनी प्रीमियम वेबसाइट्स">AI-Powered Premium Websites</h1>
-  <p data-en="We design smart websites that convert visitors into paying customers." data-hi="हम स्मार्ट वेबसाइट बनाते हैं जो विज़िटर को ग्राहक बनाती हैं.">
-    We design smart websites that convert visitors into paying customers.
+  <p data-en="Custom-designed websites with modern colors, smart features and AI – built to impress and convert." data-hi="आधुनिक रंगों, स्मार्ट फीचर्स और AI के साथ कस्टम वेबसाइट – जो ग्राहक को प्रभावित करे और बदले.">
+    Custom-designed websites with modern colors, smart features and AI – built to impress and convert.
   </p>
   <a class="btn" href="https://wa.me/919012277862" target="_blank" data-en="Start on WhatsApp" data-hi="WhatsApp पर शुरू करें">Start on WhatsApp</a>
 </section><section>
   <div class="grid">
-    <div class="card"><h3 data-en="Business Websites" data-hi="बिज़नेस वेबसाइट">Business Websites</h3><p data-en="Fast, secure and conversion-focused websites." data-hi="तेज़, सुरक्षित और ग्राहक बढ़ाने वाली वेबसाइट."></p></div>
-    <div class="card"><h3 data-en="AI Integration" data-hi="AI इंटीग्रेशन">AI Integration</h3><p data-en="Chatbots, automation and smart forms." data-hi="चैटबॉट, ऑटोमेशन और स्मार्ट फ़ॉर्म."></p></div>
-    <div class="card"><h3 data-en="SEO & Speed" data-hi="SEO और स्पीड">SEO & Speed</h3><p data-en="Optimized for Google ranking and performance." data-hi="Google रैंकिंग और तेज़ स्पीड के लिए."></p></div>
+    <div class="card"><h3 data-en="Business Websites" data-hi="बिज़नेस वेबसाइट">Business Websites</h3><p data-en="Fast, secure and trust-building websites." data-hi="तेज़, सुरक्षित और भरोसेमंद वेबसाइट."></p></div>
+    <div class="card"><h3 data-en="AI Integration" data-hi="AI इंटीग्रेशन">AI Integration</h3><p data-en="AI chat, automation and smart user experience." data-hi="AI चैट, ऑटोमेशन और स्मार्ट अनुभव."></p></div>
+    <div class="card"><h3 data-en="Premium Design" data-hi="प्रीमियम डिज़ाइन">Premium Design</h3><p data-en="Modern UI with premium colors and animations." data-hi="प्रीमियम रंग और आधुनिक डिज़ाइन."></p></div>
   </div>
 </section><section>
   <div class="grid">
@@ -122,17 +120,18 @@ select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
   </div>
 </section><section>
   <div class="card ai-box">
-    <h3 data-en="AI Demo (Preview)" data-hi="AI डेमो (पूर्वावलोकन)">AI Demo (Preview)</h3>
-    <p data-en="This AI can answer customer queries on your website." data-hi="यह AI आपकी वेबसाइट पर ग्राहक के सवालों का जवाब देगा."></p>
-    <input placeholder="Ask AI (demo)" />
+    <h3>AI Demo (Preview)</h3>
+    <p>This is a demo AI. It replies automatically to show how AI chat works.</p>
+    <input id="aiInput" placeholder="Ask something..." />
+    <p id="aiReply" style="margin-top:10px;color:#a5b4fc"></p>
   </div>
 </section><section>
   <div class="card">
     <h3 data-en="Contact Us" data-hi="संपर्क करें">Contact Us</h3>
-    <input placeholder="Your Name" />
-    <input placeholder="WhatsApp Number" />
-    <textarea placeholder="Your Requirement"></textarea>
-    <a class="btn" style="margin-top:14px;display:inline-block" href="https://wa.me/919012277862">Send on WhatsApp</a>
+    <input id="name" placeholder="Your Name" />
+    <input id="phone" placeholder="WhatsApp Number" />
+    <textarea id="req" placeholder="Your Requirement"></textarea>
+    <a class="btn" style="margin-top:14px;display:inline-block" onclick="sendWhatsApp()">Send on WhatsApp</a>
   </div>
 </section><div class="overlay" onclick="closeMenu()"></div>
 <div class="menu" id="menu">
@@ -147,8 +146,27 @@ select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
     <option value="hi">Hindi</option>
   </select>
 </div><footer>© 2026 SQL. All rights reserved.</footer><script>
-function openMenu(){document.getElementById('menu').classList.add('active');document.querySelector('.overlay').classList.add('active');document.body.style.overflow='hidden'}
-function closeMenu(){document.getElementById('menu').classList.remove('active');document.querySelector('.overlay').classList.remove('active');document.body.style.overflow=''}
-function changeLanguage(lang){document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[lang]})}
+function openMenu(){menu.classList.add('active');document.querySelector('.overlay').classList.add('active');document.body.style.overflow='hidden'}
+function closeMenu(){menu.classList.remove('active');document.querySelector('.overlay').classList.remove('active');document.body.style.overflow=''}
+function changeLanguage(lang){document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang])}
+
+function sendWhatsApp(){
+  const name=document.getElementById('name').value;
+  const phone=document.getElementById('phone').value;
+  const req=document.getElementById('req').value;
+  const msg=`Name: ${name}%0AWhatsApp: ${phone}%0ARequirement: ${req}`;
+  window.open(`https://wa.me/919012277862?text=${msg}`,'_blank');
+}
+
+const replies=[
+  'This is a demo AI 😊',
+  'AI chat will be added to your website',
+  'This AI replies automatically (demo)',
+  'Premium AI features available in paid plans'
+];
+
+document.getElementById('aiInput').addEventListener('input',e=>{
+  document.getElementById('aiReply').textContent=replies[Math.floor(Math.random()*replies.length)];
+});
 </script></body>
-</html>
+                        </html>
