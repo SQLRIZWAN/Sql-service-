@@ -2,43 +2,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL – Business Websites</title>
+  <title>SQL – Premium AI Websites</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: #0b1020; color: #fff; }header {
-  padding: 20px;
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: radial-gradient(circle at top, #0f172a, #020617); color: #fff; }header {
+  padding: 20px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(2,6,23,0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
-.logo { font-size: 26px; font-weight: bold; }
+.logo { font-size: 28px; font-weight: 800; letter-spacing: 1px; }
+.menu-btn { font-size: 28px; cursor: pointer; }
 
-.menu-btn { font-size: 26px; cursor: pointer; }
+section { padding: 70px 22px; }
 
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.hero h1 { font-size: 32px; margin-bottom: 15px; }
-.hero p { color: #ccc; margin-bottom: 25px; }
+.hero { text-align: center; }
+.hero h1 { font-size: 38px; margin-bottom: 16px; }
+.hero p { color: #cbd5f5; margin-bottom: 28px; font-size: 18px; }
 
 .btn {
   display: inline-block;
-  padding: 14px 28px;
-  background: #3ab4ff;
-  color: #000;
-  border-radius: 8px;
+  padding: 15px 32px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #020617;
+  border-radius: 14px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(99,102,241,0.4);
 }
+
+.grid { display: grid; gap: 22px; }
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.card h3 { margin-bottom: 10px; }
+.card p { color: #cbd5f5; font-size: 15px; }
+
+.pricing span { font-size: 28px; font-weight: 800; }
+
+.ai-box {
+  margin-top: 20px;
+  background: #020617;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 12px;
+}
+
+footer { text-align: center; padding: 40px 20px; color: #94a3b8; }
 
 /* MENU */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   display: none;
   z-index: 999;
 }
@@ -49,20 +85,17 @@
   right: -100%;
   width: 80%;
   height: 100%;
-  background: #050814;
-  padding: 20px;
-  transition: 0.3s;
+  background: #020617;
+  padding: 24px;
+  transition: 0.35s;
   z-index: 1000;
 }
 
 .menu.active { right: 0; }
 .overlay.active { display: block; }
+.menu a { display: block; margin: 16px 0; text-decoration: none; color: #fff; }
 
-.menu a { display: block; color: #fff; text-decoration: none; margin: 15px 0; }
-
-select { width: 100%; padding: 10px; margin-top: 20px; }
-
-footer { text-align: center; padding: 30px; color: #777; }
+select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
 
   </style>
 </head>
@@ -70,39 +103,52 @@ footer { text-align: center; padding: 30px; color: #777; }
   <div class="logo">SQL</div>
   <div class="menu-btn" onclick="openMenu()">☰</div>
 </header><section class="hero">
-  <h1 data-en="Need a Website for Your Business?" data-hi="अपने बिज़नेस के लिए वेबसाइट चाहिए?">
-    Need a Website for Your Business?
-  </h1>
-  <p data-en="Professional websites that build trust and bring customers." data-hi="प्रोफेशनल वेबसाइट जो भरोसा बनाती है और ग्राहक लाती है.">
-    Professional websites that build trust and bring customers.
+  <h1 data-en="AI-Powered Premium Websites" data-hi="AI से बनी प्रीमियम वेबसाइट्स">AI-Powered Premium Websites</h1>
+  <p data-en="We design smart websites that convert visitors into paying customers." data-hi="हम स्मार्ट वेबसाइट बनाते हैं जो विज़िटर को ग्राहक बनाती हैं.">
+    We design smart websites that convert visitors into paying customers.
   </p>
-  <a class="btn" href="https://wa.me/919012277862" target="_blank"
-     data-en="Get Started on WhatsApp" data-hi="WhatsApp पर शुरू करें">
-     Get Started on WhatsApp
-  </a>
-</section><div class="overlay" onclick="closeMenu()"></div><div class="menu" id="menu">
-  <a href="#" onclick="closeMenu()">✖ Close</a>
+  <a class="btn" href="https://wa.me/919012277862" target="_blank" data-en="Start on WhatsApp" data-hi="WhatsApp पर शुरू करें">Start on WhatsApp</a>
+</section><section>
+  <div class="grid">
+    <div class="card"><h3 data-en="Business Websites" data-hi="बिज़नेस वेबसाइट">Business Websites</h3><p data-en="Fast, secure and conversion-focused websites." data-hi="तेज़, सुरक्षित और ग्राहक बढ़ाने वाली वेबसाइट."></p></div>
+    <div class="card"><h3 data-en="AI Integration" data-hi="AI इंटीग्रेशन">AI Integration</h3><p data-en="Chatbots, automation and smart forms." data-hi="चैटबॉट, ऑटोमेशन और स्मार्ट फ़ॉर्म."></p></div>
+    <div class="card"><h3 data-en="SEO & Speed" data-hi="SEO और स्पीड">SEO & Speed</h3><p data-en="Optimized for Google ranking and performance." data-hi="Google रैंकिंग और तेज़ स्पीड के लिए."></p></div>
+  </div>
+</section><section>
+  <div class="grid">
+    <div class="card pricing"><h3>Starter</h3><span>₹3,999</span><p>1 Page • WhatsApp Lead</p></div>
+    <div class="card pricing"><h3>Business</h3><span>₹7,999</span><p>5 Pages • AI Chat • SEO</p></div>
+    <div class="card pricing"><h3>Premium</h3><span>₹14,999</span><p>AI + Automation • Priority Support</p></div>
+  </div>
+</section><section>
+  <div class="card ai-box">
+    <h3 data-en="AI Demo (Preview)" data-hi="AI डेमो (पूर्वावलोकन)">AI Demo (Preview)</h3>
+    <p data-en="This AI can answer customer queries on your website." data-hi="यह AI आपकी वेबसाइट पर ग्राहक के सवालों का जवाब देगा."></p>
+    <input placeholder="Ask AI (demo)" />
+  </div>
+</section><section>
+  <div class="card">
+    <h3 data-en="Contact Us" data-hi="संपर्क करें">Contact Us</h3>
+    <input placeholder="Your Name" />
+    <input placeholder="WhatsApp Number" />
+    <textarea placeholder="Your Requirement"></textarea>
+    <a class="btn" style="margin-top:14px;display:inline-block" href="https://wa.me/919012277862">Send on WhatsApp</a>
+  </div>
+</section><div class="overlay" onclick="closeMenu()"></div>
+<div class="menu" id="menu">
+  <a onclick="closeMenu()">✖ Close</a>
   <a href="#">Home</a>
   <a href="#">Services</a>
-  <a href="#">Contact</a><label style="margin-top:20px;display:block;">Language</label> <select id="languageSelect" onchange="changeLanguage(this.value)"> <option value="en">English</option> <option value="hi">Hindi</option> </select>
-
+  <a href="#">Pricing</a>
+  <a href="#">Contact</a>
+  <label>Language</label>
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+  </select>
 </div><footer>© 2026 SQL. All rights reserved.</footer><script>
-  function openMenu() {
-    document.getElementById('menu').classList.add('active');
-    document.querySelector('.overlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    document.getElementById('menu').classList.remove('active');
-    document.querySelector('.overlay').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function changeLanguage(lang) {
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.dataset[lang];
-    });
-  }
+function openMenu(){document.getElementById('menu').classList.add('active');document.querySelector('.overlay').classList.add('active');document.body.style.overflow='hidden'}
+function closeMenu(){document.getElementById('menu').classList.remove('active');document.querySelector('.overlay').classList.remove('active');document.body.style.overflow=''}
+function changeLanguage(lang){document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[lang]})}
 </script></body>
 </html>
