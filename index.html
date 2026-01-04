@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SQL – Premium AI Websites</title>
 
 <style>
@@ -46,35 +46,49 @@ background:#020617;padding:24px;transition:.35s;z-index:1000
 .overlay.active{display:block}
 .menu a{display:block;margin:16px 0;color:#fff;text-decoration:none}
 
-/* CHATBOT */
-.chatbot{
-position:fixed;bottom:20px;right:20px;width:320px;
-background:#0f172a;border-radius:18px;
-box-shadow:0 20px 60px rgba(0,0,0,.6);
-overflow:hidden;z-index:9999
+/* CHAT BUTTON */
+#chatBtn{
+position:fixed;bottom:22px;right:22px;
+width:56px;height:56px;
+background:#25D366;color:#020617;
+border-radius:50%;display:flex;
+align-items:center;justify-content:center;
+font-size:26px;cursor:pointer;
+z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.4)
 }
-.chat-header{
-background:#25D366;color:#020617;padding:14px;font-weight:700
+
+/* CHAT WINDOW */
+#chatWindow{
+position:fixed;bottom:90px;right:22px;
+width:320px;background:#0f172a;
+border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.6);
+overflow:hidden;display:none;z-index:9999
 }
-.chat-header small{display:block;font-size:11px}
-.chat-body{
-height:260px;padding:12px;overflow-y:auto;background:#020617
+.chatHeader{
+background:#25D366;color:#020617;
+padding:12px;font-weight:700;
+display:flex;justify-content:space-between;align-items:center
+}
+.chatBody{
+height:260px;padding:12px;
+overflow-y:auto;background:#020617
 }
 .bot,.user{
-max-width:80%;padding:10px 14px;margin-bottom:8px;
-border-radius:14px;font-size:14px
+max-width:80%;padding:10px 14px;
+margin-bottom:8px;border-radius:14px;font-size:14px
 }
 .bot{background:#1e293b;color:#e5e7eb}
 .user{background:#25D366;color:#020617;margin-left:auto}
-.chat-input{
+.chatInput{
 display:flex;padding:10px;background:#020617
 }
-.chat-input input{
+.chatInput input{
 flex:1;border:none;padding:10px;border-radius:12px
 }
-.chat-input button{
-margin-left:8px;background:#25D366;border:none;
-padding:0 14px;border-radius:12px;font-size:18px
+.chatInput button{
+margin-left:8px;background:#25D366;
+border:none;padding:0 14px;
+border-radius:12px;font-size:18px;cursor:pointer
 }
 
 footer{text-align:center;padding:40px 20px;color:#94a3b8}
@@ -110,18 +124,21 @@ footer{text-align:center;padding:40px 20px;color:#94a3b8}
 </div>
 </section>
 
-<footer>© 2025 SQL. All rights reserved.</footer>
+<footer>© 2026 SQL. All rights reserved.</footer>
 
-<!-- CHATBOT -->
-<div class="chatbot">
-<div class="chat-header">
+<!-- FLOATING CHAT BUTTON -->
+<div id="chatBtn" onclick="openChat()">💬</div>
+
+<!-- CHAT WINDOW -->
+<div id="chatWindow">
+<div class="chatHeader">
 SQL Assistant
-<small>online • replies instantly</small>
+<span onclick="closeChat()">✖</span>
 </div>
-<div class="chat-body" id="chatBody">
+<div class="chatBody" id="chatBody">
 <div class="bot">Hello 👋 Welcome to SQL. Aap kya jaanna chahoge?</div>
 </div>
-<div class="chat-input">
+<div class="chatInput">
 <input id="chatInput" placeholder="Type your message..." />
 <button onclick="sendMsg()">➤</button>
 </div>
@@ -138,29 +155,53 @@ SQL Assistant
 </div>
 
 <script>
-function openMenu(){menu.classList.add('active');document.querySelector('.overlay').classList.add('active')}
-function closeMenu(){menu.classList.remove('active');document.querySelector('.overlay').classList.remove('active')}
+function openMenu(){
+menu.classList.add('active');
+document.querySelector('.overlay').classList.add('active');
+}
+function closeMenu(){
+menu.classList.remove('active');
+document.querySelector('.overlay').classList.remove('active');
+}
 
+/* CHAT OPEN / CLOSE */
+function openChat(){chatWindow.style.display="block"}
+function closeChat(){chatWindow.style.display="none"}
+
+/* RULE BASED REPLIES */
 const intents=[
-{keywords:["hi","hello","hey","hii","hlo","namaste","online"],reply:"Hello 👋 Welcome to SQL. Main help ke liye yahan hoon."},
-{keywords:["price","cost","kitna","fees","charges","budget"],reply:"Website price requirements par depend karta hai. WhatsApp par baat karte hain 📲"},
-{keywords:["services","website","ai","chatbot","design"],reply:"Hum premium websites, AI chat aur WhatsApp lead systems banate hain 🚀"},
-{keywords:["contact","whatsapp","call","number","baat"],reply:"📲 WhatsApp par baat karein: https://wa.me/919012277862"}
+{keys:["hi","hello","hey","hii","namaste","online"],
+ reply:"Hello 👋 Welcome to SQL. Main website, pricing aur services me help kar sakta hoon."},
+
+{keys:["price","cost","kitna","fees","charges","budget"],
+ reply:"Website ka price requirements par depend karta hai. WhatsApp par baat karna best rahega 📲"},
+
+{keys:["services","website","ai","chatbot","design"],
+ reply:"Hum premium websites, AI chat aur WhatsApp lead systems banate hain 🚀"},
+
+{keys:["contact","whatsapp","call","number","baat"],
+ reply:"📲 Direct WhatsApp par baat karein: https://wa.me/919012277862"}
 ];
 
 function sendMsg(){
 const input=document.getElementById("chatInput");
 const msg=input.value.toLowerCase();
 if(!msg)return;
+
 addMsg(msg,"user");
 input.value="";
-let found=false;
-for(let i of intents){
- if(i.keywords.some(k=>msg.includes(k))){
-  addMsg(i.reply,"bot");found=true;break;
+
+let matched=false;
+for(const i of intents){
+ if(i.keys.some(k=>msg.includes(k))){
+  addMsg(i.reply,"bot");
+  matched=true;
+  break;
  }
 }
-if(!found)addMsg("Samajh nahi aaya 🤔 WhatsApp par baat karte hain.","bot");
+if(!matched){
+ addMsg("Samajh nahi aaya 🤔 WhatsApp par baat karte hain.","bot");
+}
 }
 
 function addMsg(text,type){
@@ -177,4 +218,4 @@ if(e.key==="Enter")sendMsg();
 </script>
 
 </body>
-</html>
+ </html>
