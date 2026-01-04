@@ -1,172 +1,180 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL – Premium AI Websites</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { background: radial-gradient(circle at top, #0f172a, #020617); color: #fff; }header {
-  padding: 20px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: rgba(2,6,23,0.8);
-  backdrop-filter: blur(10px);
-  z-index: 100;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL – Premium AI Websites</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
+body{background:radial-gradient(circle at top,#0f172a,#020617);color:#fff}
+
+/* HEADER */
+header{
+padding:20px 24px;display:flex;justify-content:space-between;align-items:center;
+position:sticky;top:0;background:rgba(2,6,23,.8);backdrop-filter:blur(10px);z-index:100
+}
+.logo{font-size:28px;font-weight:800}
+.menu-btn{font-size:28px;cursor:pointer}
+
+/* SECTIONS */
+section{padding:70px 22px}
+.hero{text-align:center}
+.hero h1{font-size:38px;margin-bottom:16px}
+.hero p{color:#cbd5f5;margin-bottom:28px;font-size:18px}
+.btn{
+display:inline-block;padding:15px 32px;
+background:linear-gradient(135deg,#22d3ee,#818cf8);
+color:#020617;border-radius:16px;text-decoration:none;font-weight:700
+}
+.grid{display:grid;gap:22px}
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;padding:26px
+}
+.card p{color:#cbd5f5;font-size:15px}
+.pricing span{font-size:28px;font-weight:800}
+
+/* MENU */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;z-index:999}
+.menu{
+position:fixed;top:0;right:-100%;width:80%;height:100%;
+background:#020617;padding:24px;transition:.35s;z-index:1000
+}
+.menu.active{right:0}
+.overlay.active{display:block}
+.menu a{display:block;margin:16px 0;color:#fff;text-decoration:none}
+
+/* CHATBOT */
+.chatbot{
+position:fixed;bottom:20px;right:20px;width:320px;
+background:#0f172a;border-radius:18px;
+box-shadow:0 20px 60px rgba(0,0,0,.6);
+overflow:hidden;z-index:9999
+}
+.chat-header{
+background:#25D366;color:#020617;padding:14px;font-weight:700
+}
+.chat-header small{display:block;font-size:11px}
+.chat-body{
+height:260px;padding:12px;overflow-y:auto;background:#020617
+}
+.bot,.user{
+max-width:80%;padding:10px 14px;margin-bottom:8px;
+border-radius:14px;font-size:14px
+}
+.bot{background:#1e293b;color:#e5e7eb}
+.user{background:#25D366;color:#020617;margin-left:auto}
+.chat-input{
+display:flex;padding:10px;background:#020617
+}
+.chat-input input{
+flex:1;border:none;padding:10px;border-radius:12px
+}
+.chat-input button{
+margin-left:8px;background:#25D366;border:none;
+padding:0 14px;border-radius:12px;font-size:18px
 }
 
-.logo { font-size: 28px; font-weight: 800; letter-spacing: 1px; }
-.menu-btn { font-size: 28px; cursor: pointer; }
-
-section { padding: 70px 22px; }
-
-.hero { text-align: center; }
-.hero h1 { font-size: 38px; margin-bottom: 16px; }
-.hero p { color: #cbd5f5; margin-bottom: 28px; font-size: 18px; }
-
-.btn {
-  display: inline-block;
-  padding: 15px 32px;
-  background: linear-gradient(135deg, #22d3ee, #818cf8);
-  color: #020617;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 10px 30px rgba(129,140,248,0.4);
-}
-
-.grid { display: grid; gap: 22px; }
-
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 22px;
-  padding: 26px;
-  box-shadow: 0 12px 45px rgba(0,0,0,0.45);
-}
-
-.card h3 { margin-bottom: 10px; }
-.card p { color: #cbd5f5; font-size: 15px; }
-
-.pricing span { font-size: 28px; font-weight: 800; }
-
-.ai-box input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  margin-top: 14px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  margin-top: 12px;
-}
-
-footer { text-align: center; padding: 40px 20px; color: #94a3b8; }
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  z-index: 999;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100%;
-  background: #020617;
-  padding: 24px;
-  transition: 0.35s;
-  z-index: 1000;
-}
-
-.menu.active { right: 0; }
-.overlay.active { display: block; }
-.menu a { display: block; margin: 16px 0; text-decoration: none; color: #fff; }
-select { width: 100%; padding: 12px; margin-top: 18px; border-radius: 10px; }
-
-  </style>
+footer{text-align:center;padding:40px 20px;color:#94a3b8}
+</style>
 </head>
-<body><header>
-  <div class="logo">SQL</div>
-  <div class="menu-btn" onclick="openMenu()">☰</div>
-</header><section class="hero">
-  <h1 data-en="AI-Powered Premium Websites" data-hi="AI से बनी प्रीमियम वेबसाइट्स">AI-Powered Premium Websites</h1>
-  <p data-en="Custom-designed websites with modern colors, smart features and AI – built to impress and convert." data-hi="आधुनिक रंगों, स्मार्ट फीचर्स और AI के साथ कस्टम वेबसाइट – जो ग्राहक को प्रभावित करे और बदले.">
-    Custom-designed websites with modern colors, smart features and AI – built to impress and convert.
-  </p>
-  <a class="btn" href="https://wa.me/919012277862" target="_blank" data-en="Start on WhatsApp" data-hi="WhatsApp पर शुरू करें">Start on WhatsApp</a>
-</section><section>
-  <div class="grid">
-    <div class="card"><h3 data-en="Business Websites" data-hi="बिज़नेस वेबसाइट">Business Websites</h3><p data-en="Fast, secure and trust-building websites." data-hi="तेज़, सुरक्षित और भरोसेमंद वेबसाइट."></p></div>
-    <div class="card"><h3 data-en="AI Integration" data-hi="AI इंटीग्रेशन">AI Integration</h3><p data-en="AI chat, automation and smart user experience." data-hi="AI चैट, ऑटोमेशन और स्मार्ट अनुभव."></p></div>
-    <div class="card"><h3 data-en="Premium Design" data-hi="प्रीमियम डिज़ाइन">Premium Design</h3><p data-en="Modern UI with premium colors and animations." data-hi="प्रीमियम रंग और आधुनिक डिज़ाइन."></p></div>
-  </div>
-</section><section>
-  <div class="grid">
-    <div class="card pricing"><h3>Starter</h3><span>₹3,999</span><p>1 Page • WhatsApp Lead</p></div>
-    <div class="card pricing"><h3>Business</h3><span>₹7,999</span><p>5 Pages • AI Chat • SEO</p></div>
-    <div class="card pricing"><h3>Premium</h3><span>₹14,999</span><p>AI + Automation • Priority Support</p></div>
-  </div>
-</section><section>
-  <div class="card ai-box">
-    <h3>AI Demo (Preview)</h3>
-    <p>This is a demo AI. It replies automatically to show how AI chat works.</p>
-    <input id="aiInput" placeholder="Ask something..." />
-    <p id="aiReply" style="margin-top:10px;color:#a5b4fc"></p>
-  </div>
-</section><section>
-  <div class="card">
-    <h3 data-en="Contact Us" data-hi="संपर्क करें">Contact Us</h3>
-    <input id="name" placeholder="Your Name" />
-    <input id="phone" placeholder="WhatsApp Number" />
-    <textarea id="req" placeholder="Your Requirement"></textarea>
-    <a class="btn" style="margin-top:14px;display:inline-block" onclick="sendWhatsApp()">Send on WhatsApp</a>
-  </div>
-</section><div class="overlay" onclick="closeMenu()"></div>
+
+<body>
+
+<header>
+<div class="logo">SQL</div>
+<div class="menu-btn" onclick="openMenu()">☰</div>
+</header>
+
+<section class="hero">
+<h1>AI-Powered Premium Websites</h1>
+<p>Custom-designed websites with modern colors, smart features and AI.</p>
+<a class="btn" href="https://wa.me/919012277862" target="_blank">Start on WhatsApp</a>
+</section>
+
+<section>
+<div class="grid">
+<div class="card"><h3>Business Websites</h3><p>Fast, secure and trust-building websites.</p></div>
+<div class="card"><h3>AI Integration</h3><p>AI chat & automation.</p></div>
+<div class="card"><h3>Premium Design</h3><p>Modern UI & animations.</p></div>
+</div>
+</section>
+
+<section>
+<div class="grid">
+<div class="card pricing"><h3>Starter</h3><span>₹3,999</span><p>1 Page • WhatsApp Lead</p></div>
+<div class="card pricing"><h3>Business</h3><span>₹7,999</span><p>5 Pages • AI Chat</p></div>
+<div class="card pricing"><h3>Premium</h3><span>₹14,999</span><p>AI + Automation</p></div>
+</div>
+</section>
+
+<footer>© 2025 SQL. All rights reserved.</footer>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+<div class="chat-header">
+SQL Assistant
+<small>online • replies instantly</small>
+</div>
+<div class="chat-body" id="chatBody">
+<div class="bot">Hello 👋 Welcome to SQL. Aap kya jaanna chahoge?</div>
+</div>
+<div class="chat-input">
+<input id="chatInput" placeholder="Type your message..." />
+<button onclick="sendMsg()">➤</button>
+</div>
+</div>
+
+<!-- MENU -->
+<div class="overlay" onclick="closeMenu()"></div>
 <div class="menu" id="menu">
-  <a onclick="closeMenu()">✖ Close</a>
-  <a href="#">Home</a>
-  <a href="#">Services</a>
-  <a href="#">Pricing</a>
-  <a href="#">Contact</a>
-  <label>Language</label>
-  <select onchange="changeLanguage(this.value)">
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-  </select>
-</div><footer>© 2026 SQL. All rights reserved.</footer><script>
-function openMenu(){menu.classList.add('active');document.querySelector('.overlay').classList.add('active');document.body.style.overflow='hidden'}
-function closeMenu(){menu.classList.remove('active');document.querySelector('.overlay').classList.remove('active');document.body.style.overflow=''}
-function changeLanguage(lang){document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang])}
+<a onclick="closeMenu()">✖ Close</a>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Pricing</a>
+<a href="#">Contact</a>
+</div>
 
-function sendWhatsApp(){
-  const name=document.getElementById('name').value;
-  const phone=document.getElementById('phone').value;
-  const req=document.getElementById('req').value;
-  const msg=`Name: ${name}%0AWhatsApp: ${phone}%0ARequirement: ${req}`;
-  window.open(`https://wa.me/919012277862?text=${msg}`,'_blank');
-}
+<script>
+function openMenu(){menu.classList.add('active');document.querySelector('.overlay').classList.add('active')}
+function closeMenu(){menu.classList.remove('active');document.querySelector('.overlay').classList.remove('active')}
 
-const replies=[
-  'This is a demo AI 😊',
-  'AI chat will be added to your website',
-  'This AI replies automatically (demo)',
-  'Premium AI features available in paid plans'
+const intents=[
+{keywords:["hi","hello","hey","hii","hlo","namaste","online"],reply:"Hello 👋 Welcome to SQL. Main help ke liye yahan hoon."},
+{keywords:["price","cost","kitna","fees","charges","budget"],reply:"Website price requirements par depend karta hai. WhatsApp par baat karte hain 📲"},
+{keywords:["services","website","ai","chatbot","design"],reply:"Hum premium websites, AI chat aur WhatsApp lead systems banate hain 🚀"},
+{keywords:["contact","whatsapp","call","number","baat"],reply:"📲 WhatsApp par baat karein: https://wa.me/919012277862"}
 ];
 
-document.getElementById('aiInput').addEventListener('input',e=>{
-  document.getElementById('aiReply').textContent=replies[Math.floor(Math.random()*replies.length)];
+function sendMsg(){
+const input=document.getElementById("chatInput");
+const msg=input.value.toLowerCase();
+if(!msg)return;
+addMsg(msg,"user");
+input.value="";
+let found=false;
+for(let i of intents){
+ if(i.keywords.some(k=>msg.includes(k))){
+  addMsg(i.reply,"bot");found=true;break;
+ }
+}
+if(!found)addMsg("Samajh nahi aaya 🤔 WhatsApp par baat karte hain.","bot");
+}
+
+function addMsg(text,type){
+const div=document.createElement("div");
+div.className=type;
+div.textContent=text;
+chatBody.appendChild(div);
+chatBody.scrollTop=chatBody.scrollHeight;
+}
+
+chatInput.addEventListener("keypress",e=>{
+if(e.key==="Enter")sendMsg();
 });
-</script></body>
-                        </html>
+</script>
+
+</body>
+</html>
